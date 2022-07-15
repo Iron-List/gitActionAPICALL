@@ -1,9 +1,14 @@
-on: push
+name: Scrapy deploy
+
+on: [push]
+
 jobs:
-  curl:
+  build_and_test:
     runs-on: ubuntu-latest
     steps:
-    - name: curl
-      uses: wei/curl@v1
-      with:
-        args: -X POST https://httpbin.org/post
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: build file
+        run: |
+          echo $GITHUB_REPOSITORY_OWNER 
+          echo "python"
