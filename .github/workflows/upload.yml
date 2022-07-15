@@ -15,7 +15,7 @@ jobs:
           echo $GITHUB_REPOSITORY_OWNER 
           echo "python"
           echo python -v
-          name = cat projectname.txt
+          $name = cat projectname.txt
           python setup.py bdist_egg
  
           cd dist
