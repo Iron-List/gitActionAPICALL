@@ -17,7 +17,9 @@ jobs:
           echo python -v
           ls
           echo "Before"
-          python setup.py
+          python setup.py bdist_egg
+          ls
+          cd dist
           ls
           echo "Afer"
       - name: Dump GitHub context
