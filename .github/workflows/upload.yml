@@ -9,10 +9,13 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
       - name: Deploy Scrapy File
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
         run: |
           echo $GITHUB_REPOSITORY_OWNER 
           echo "python"
           echo python -v
+          echo ls
       - name: Dump GitHub context
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
