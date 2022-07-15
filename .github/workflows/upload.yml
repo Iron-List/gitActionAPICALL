@@ -15,7 +15,7 @@ jobs:
           echo $GITHUB_REPOSITORY_OWNER 
           echo "python"
           echo python -v
-          echo ls
+          ls
       - name: Dump GitHub context
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
