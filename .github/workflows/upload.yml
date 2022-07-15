@@ -16,17 +16,13 @@ jobs:
           echo "python"
           echo python -v
           cat projectname.txt
-          ls
-          echo "Before"
           python setup.py bdist_egg
-          ls
+ 
           cd dist
           ls
-          echo "Afer"
-          jq
-          yq
-          echo "with file"
+          mv *.egg output.egg
           curl -I https://insights.ironlist.com/server-api
+          curl -I http://35.154.219.125:6800/ -F project=myproject1 -F version=r23 -F egg=@output.egg
       - name: Dump GitHub context
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
