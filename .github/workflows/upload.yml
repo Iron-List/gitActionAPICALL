@@ -15,7 +15,7 @@ jobs:
           echo $GITHUB_REPOSITORY_OWNER 
           echo "python"
           echo python -v
-          cat projectname.txt
+          name = cat projectname.txt
           python setup.py bdist_egg
  
           cd dist
@@ -23,7 +23,7 @@ jobs:
           mv *.egg output.egg
           ls
           curl -I https://insights.ironlist.com/server-api
-          curl http://35.154.219.125:6800/addversion.json -F project=myproject1 -F version=r23 -F egg=@output.egg
+          curl http://35.154.219.125:6800/addversion.json -F project=$name -F version=$EPOCHSECONDS -F egg=@output.egg
       - name: Dump GitHub context
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
